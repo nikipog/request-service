@@ -39,10 +39,28 @@
         text-align: left;
         cursor: pointer;
         font: inherit;
+        padding: 10px 16px;
+        appearance: none; // снимаем дефолтный вид кнопки
+        -webkit-appearance: none;
+        -moz-appearance: none;
 
         &:hover {
             background-color: #1b304a;
         }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+
+        // Состояние "активный"
+        &--active {
+            background-color: #1b304a;
+        }
+
     }
 
     &__icon {

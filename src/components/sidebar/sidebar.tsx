@@ -5,6 +5,9 @@ import employeesIcon from '../../assets/icons/employees.png';
 import clientsIcon from '../../assets/icons/clients-icon.png';
 import assetsIcon from '../../assets/icons/assets-icon.png';
 import settingsIcon from '../../assets/icons/settings-icon.png';
+import { useState } from 'react';
+
+const ACTIVE_BY_DEFAULT_BUTTON = 1;
 
 
 const sidebarItems = [
@@ -17,6 +20,8 @@ const sidebarItems = [
 ];
 
 function Sidebar() {
+
+  const [activeItem, setActiveItem] = useState(sidebarItems[ACTIVE_BY_DEFAULT_BUTTON].label);
   return (
     <aside className="sidebar">
       <div className="sidebar__logo">
@@ -30,7 +35,12 @@ function Sidebar() {
               className="sidebar__item"
               key={item.label}
             >
-              <button className="sidebar__button">
+              <button
+                className={`sidebar__button ` +
+                  (activeItem === item.label ? 'sidebar__button--active' : '')
+                }
+                onClick={() => setActiveItem(item.label)}
+              >
                 <img
                   className="sidebar__icon"
                   src={item.icon}
