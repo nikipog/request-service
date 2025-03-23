@@ -1,10 +1,9 @@
 import "./App.scss";
+import Layout from "./components/layout/layout";
 
 function App() {
   return (
-    <div>
-      <h1>hello world!</h1>
-    </div>
+    <Layout />
   );
 }
 
