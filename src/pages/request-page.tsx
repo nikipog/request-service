@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './requests-page.scss';
 import NewRequest from '../components/new-request/new-request';
+import EditRequest from '../components/edit-request/edit-request';
 
 const priority = {
     rgb: "#ee0909",
@@ -9,7 +10,8 @@ const priority = {
 };
 
 export default function RequestsPage() {
-    const [showForm, setShowNewForm] = useState(true);
+    const [showForm, setShowNewForm] = useState(false);
+    const [editForm, setEditNewForm] = useState(true);
 
     return (
         <main >
@@ -49,10 +51,12 @@ export default function RequestsPage() {
                     </table>
                 </section>
 
-                {showForm &&
-                    <section className="requests__new-request">
-                        <NewRequest />
-                    </section>}
+
+                <section className="requests__new-request">
+                    {showForm && <NewRequest />}
+                    {editForm && <EditRequest />}
+
+                </section>
 
             </div>
         </main >
