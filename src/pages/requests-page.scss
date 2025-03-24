@@ -1,5 +1,7 @@
 .requests {
 
+    position: relative;
+
     &__toolbar {
         margin-top: 25px;
         margin-left: 262px;
@@ -34,7 +36,7 @@
 
     &__table {
         border-collapse: collapse;
-        width: 100%;
+        width: 65%;
         table-layout: fixed;
     }
 
@@ -90,6 +92,16 @@
 .requests__table th:nth-child(2),
 .requests__table td:nth-child(2) {
     width: 420px;
+}
+
+.requests__table th:nth-child(3),
+.requests__table td:nth-child(3) {
+    width: 123px;
+}
+
+.requests__table th:last-child,
+.requests__table td:last-child {
+    width: 155px;
 }
 
 .requests__table td:nth-child(2) .table__cell-content {
