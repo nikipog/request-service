@@ -63,7 +63,7 @@ export default function EditRequest() {
                 statusId: Number(status),
                 executorId: Number(executor)
             }).unwrap();
-            navigate(`/`);
+            navigate(`/requests`);
 
         } catch (error) {
             console.error(error);
@@ -79,7 +79,7 @@ export default function EditRequest() {
                 <div className='edit-request__title'>
                     {task.name}
                 </div>
-                <Link to='/'>
+                <Link to='/requests'>
                     <button className='edit-request__close-btn' aria-label='Закрыть'>
                         <img src='\src\assets\icons\close-icon.png' alt='Закрыть' />
                     </button>

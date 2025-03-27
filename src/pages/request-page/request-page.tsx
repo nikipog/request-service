@@ -1,4 +1,4 @@
-import TasksList from '../components/tasks-list/tasks-list';
+import TasksList from '../../components/tasks-list/tasks-list';
 import './requests-page.scss';
 import { Outlet, useNavigate } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ export default function RequestsPage() {
                 <div className="requests__toolbar">
                     <button
                         className="requests__create-btn"
-                        onClick={() => navigate('/new')}
+                        onClick={() => navigate('/requests/new')}
                     >
                         Создать заявку
 

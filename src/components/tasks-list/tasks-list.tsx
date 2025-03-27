@@ -11,7 +11,7 @@ export default function TasksList() {
 
     function onListItemClick(id: number) {
         console.log('clicked on id is:', id);
-        navigate(`/${id}/edit`);
+        navigate(`/requests/${id}/edit`);
     }
 
     if (isLoading) {

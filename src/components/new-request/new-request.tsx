@@ -18,7 +18,7 @@ export default function NewRequest() {
                 name: title,
                 description
             }).unwrap();
-            navigate(`/${response}/edit`);
+            navigate(`/requests/${response}/edit`);
         } catch (err) {
             console.error('Ошибка при создании задачи:', err);
         }
@@ -30,9 +30,9 @@ export default function NewRequest() {
                 <h2 className='new-request__title'>
                     Новая заявка
                 </h2>
-                <Link to="/">
+                <Link to="/requests">
                     <button className='new-request__close-btn' aria-label='Закрыть'>
-                        <img src='src\assets\icons\close-icon.png' alt='Закрыть' />
+                        <img src='\src\assets\icons\close-icon.png' alt='Закрыть' />
                     </button>
                 </Link>
             </header>
