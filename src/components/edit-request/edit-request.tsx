@@ -21,11 +21,6 @@ export default function EditRequest() {
     const { data: executors } = useGetUsersQuery('Users');
     const [updateTask] = useUpdateTaskMutation();
 
-    const [comment, setComment] = useState('');
-    const [status, setStatus] = useState('');
-    const [executor, setExecutor] = useState('');
-
-
     useEffect(() => {
         setComment('');
     }, [id]);
@@ -33,9 +28,14 @@ export default function EditRequest() {
     useEffect(() => {
         if (task) {
             setStatus(String(task.statusId));
-            setExecutor(String(task.executor));
+            setExecutor(String(task.executorId));
         }
     }, [task]);
+
+    const [comment, setComment] = useState('');
+    const [status, setStatus] = useState('');
+    const [executor, setExecutor] = useState('');
+
 
     const selectedStatusObj = statuses?.find((s: Status) => s.id === Number(status));
     const navigate = useNavigate();

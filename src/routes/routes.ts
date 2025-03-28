@@ -6,11 +6,14 @@ import EditRequest from "../components/edit-request/edit-request";
 import EmptyPage from "../pages/empty-page/empty-page";
 import NotFoundPage from "../pages/not-found-page/not-found-page";
 
+
 export const router = createBrowserRouter([
     {
         path: '/',
         Component: Layout,
         children: [
+            { path: "", Component: RequestsPage },
+
             {
                 path: '/requests', Component: RequestsPage,
                 children: [
@@ -38,6 +41,8 @@ export const router = createBrowserRouter([
 
         ]
 
+
     },
-    { path: '*', Component: NotFoundPage }
-]);
+    { path: '*', Component: NotFoundPage },
+
+],);

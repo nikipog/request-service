@@ -1,11 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const tenantGuid = '06605a63-a05f-46a9-85ac-87e421b5f518';
+
+const tenantGuid = import.meta.env.VITE_TENANT_GUID;
+const baseUrl = `${import.meta.env.VITE_API_URL}/api/${tenantGuid}`;
 
 export const apiSlice = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
-        baseUrl: `http://intravision-task.test01.intravision.ru/api/${tenantGuid}`
+        baseUrl,
     }),
     tagTypes: ['AllTasks', 'Tasks', 'Statuses', 'Users', 'Priorities', 'Tags'],
     endpoints: (builder) => ({
