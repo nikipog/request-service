@@ -1,25 +1,39 @@
 import { useNavigate } from "react-router-dom";
-import { useGetAllTasksOdataQuery } from "../../store/slice/api-slice";
+import { useGetAllTasksOdataQuery, useGetPrioritiesQuery } from "../../store/slice/api-slice";
 import { Tasks } from "../../types/task";
 import './task-list.scss';
+import React from "react";
+import { Priority } from "../../types/priority";
 
 
 export default function TasksList() {
 
-    const { data: tasks, isLoading } = useGetAllTasksOdataQuery('Tasks');
+    const { data: tasks, isLoading: tasksLoading } = useGetAllTasksOdataQuery('Tasks');
+    const { data: priorities, isLoading: prioritiesLoading } = useGetPrioritiesQuery('Priorities');
+
+    const priorityMap = React.useMemo(() => {
+        const map: Record<number, string> = {};
+        if (!priorities) { return map; }
+
+        priorities.forEach((item: Priority) => {
+            map[item.id] = item.rgb;
+        });
+        return map;
+    }, [priorities]);
+
+
     const navigate = useNavigate();
 
     function onListItemClick(id: number) {
         navigate(`/requests/${id}/edit`);
     }
 
-    if (isLoading) {
-        return (
-            <div>
-                Загрузка ...
-            </div>
-        );
+
+    if (tasksLoading || prioritiesLoading) {
+        return <div>Загрузка …</div>;
     }
+
+
     return (
         <table className="requests__table">
             <thead className='requests__table-header'>
@@ -34,7 +48,7 @@ export default function TasksList() {
                 {tasks.value.map((task: Tasks) => (
 
                     <tr
-                        style={{ '--priority-color': task.statusRgb } as React.CSSProperties}
+                        style={{ '--priority-color': priorityMap[task.priorityId] } as React.CSSProperties}
                         key={task.id}
                         onClick={() => onListItemClick(task.id)}
                     >
