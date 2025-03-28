@@ -1,0 +1,123 @@
+.requests {
+
+    position: relative;
+
+    &__toolbar {
+        margin-left: 262px;
+        margin-bottom: 24px;
+        padding-top: 24px;
+    }
+
+    &__create-btn {
+        width: 180px;
+        height: 40px;
+        border-radius: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #00aaff;
+        color: #fff;
+        border: none;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border-color: none;
+        text-decoration: none;
+
+        &:hover {
+            background-color: #008fcc;
+        }
+    }
+
+    &__table-container {
+        max-height: 545px;
+        overflow-y: auto;
+        padding-left: 2px;
+    }
+
+    &__table {
+        border-collapse: separate;
+        border-spacing: 0;
+        /* Чтобы не было зазоров между ячейками */
+        width: 65%;
+        table-layout: fixed;
+    }
+
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #ccc;
+        //border-top: 2px solid #dbdfe6;
+    }
+
+
+    thead {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background-color: #fff;
+
+    }
+
+}
+
+.requests__table th+th {
+    border-left: 1px solid #ccc;
+}
+
+.requests__table th {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.requests__table tbody tr td:first-child {
+    position: relative;
+    padding-left: 12px;
+}
+
+.requests__table tbody tr td:first-child::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--priority-color);
+    border-radius: 4px;
+}
+
+
+.requests__table th:nth-child(1),
+.requests__table td:nth-child(1) {
+    width: 85px;
+}
+
+.requests__table th:nth-child(2),
+.requests__table td:nth-child(2) {
+    width: 420px;
+}
+
+.requests__table th:nth-child(3),
+.requests__table td:nth-child(3) {
+    width: 123px;
+}
+
+.requests__table th:last-child,
+.requests__table td:last-child {
+    width: 155px;
+}
+
+.requests__table td:nth-child(2) .table__cell-content {
+    line-clamp: 2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.requests__table thead tr {
+    border-bottom: 2px solid #dbdfe6;
+}
