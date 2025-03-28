@@ -36,7 +36,9 @@
     }
 
     &__table {
-        border-collapse: collapse;
+        border-collapse: separate;
+        border-spacing: 0;
+        /* Чтобы не было зазоров между ячейками */
         width: 65%;
         table-layout: fixed;
     }
@@ -45,7 +47,7 @@
     td {
         padding: 12px;
         border-bottom: 1px solid #ccc;
-        border-top: 2px solid #dbdfe6;
+        //border-top: 2px solid #dbdfe6;
     }
 
 
@@ -65,6 +67,7 @@
 
 .requests__table th {
     text-align: center;
+    border-bottom: 1px solid #ccc;
 }
 
 
@@ -113,4 +116,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
+}
+
+.requests__table thead tr {
+    border-bottom: 2px solid #dbdfe6;
 }

@@ -1,10 +1,8 @@
-/* src/components/header/header.scss */
 .header {
   background-color: #d4dfec;
 
 
   &__container {
-    /* Если нужно центрировать и ограничивать ширину */
     max-width: 1600px;
     height: 71px;
     margin: 0 auto;
@@ -23,11 +21,9 @@
 
     border: 1px solid #6da8fc;
     border-radius: 48px;
-    background: url('/src/assets/icons/search-icon.png') no-repeat right  ;
+    background: url('/src/assets/icons/search-icon.png') no-repeat right;
     background-color: #fff;
     background-position: right 10px center;
 
   }
-
-
 }
