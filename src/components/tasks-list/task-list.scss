@@ -1,0 +1,17 @@
+.status-badge-list {
+    min-width: 70px;
+    min-height: 10px;
+    display: flex;
+    /* меняем inline-block на flex */
+    align-items: center;
+    /* вертикальное центрирование */
+    justify-content: center;
+    /* горизонтальное центрирование */
+    padding: 4px 8px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 1;
+    text-transform: lowercase;
+    background-color: var(--priority-color);
+}

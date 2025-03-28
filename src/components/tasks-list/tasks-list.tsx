@@ -1,16 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { useGetAllTasksOdataQuery } from "../../store/slice/api-slice";
 import { Tasks } from "../../types/task";
+import './task-list.scss';
 
 
 export default function TasksList() {
 
     const { data: tasks, isLoading } = useGetAllTasksOdataQuery('Tasks');
-    console.log('tasks:', tasks);
     const navigate = useNavigate();
 
     function onListItemClick(id: number) {
-        console.log('clicked on id is:', id);
         navigate(`/requests/${id}/edit`);
     }
 
@@ -45,7 +44,14 @@ export default function TasksList() {
                                 {task.name}
                             </div>
                         </td>
-                        <td>{task.statusName}</td>
+                        <td>
+                            <span
+                                className="status-badge-list"
+                                style={{ backgroundColor: task.statusRgb }}
+                            >
+                                {task.statusName}
+                            </span>
+                        </td>
                         <td>{task.executorName}</td>
                     </tr>
                 ))}
